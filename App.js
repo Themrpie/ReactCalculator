@@ -10,7 +10,7 @@ const btnValues = [
   [7, 8, 9, "X"],
   [4, 5, 6, "-"],
   [1, 2, 3, "+"],
-  [0, ".", "="],
+  [0, ".","00","√", "log", "="],
 ];
 
 const toLocaleString = (num) =>
@@ -97,6 +97,33 @@ const invertClickHandler = () => {
   });
 };
 
+const hundredClickHandler = () => {
+  setCalc({
+    ...calc,
+    num: calc.num ? calc.num * 100 : 0,
+    res: calc.res ? calc.res * 100 : 0,
+    sign: "",
+  });
+};
+
+const rootClickHandler = () => {
+  setCalc({
+    ...calc,
+    num: calc.num ? Math.sqrt(calc.num) : 0,
+    res: calc.res ? Math.sqrt(calc.res) : 0,
+    sign: "",
+  });
+};
+
+const logClickHandler = () => {
+  setCalc({
+    ...calc,
+    num: calc.num ? Math.log(calc.num) : 0,
+    res: calc.res ? Math.log(calc.res) : 0,
+    sign: "",
+  });
+};
+
 const percentClickHandler = () => {
   let num = calc.num ? parseFloat(calc.num) : 0;
   let res = calc.res ? parseFloat(calc.res) : 0;
@@ -128,17 +155,25 @@ const resetClickHandler = () => {
             return (
               <Button 
               key={i}
-              className = {btn === "=" ? "equals" : ""}
+              className = {
+                btn === "00" ? "zeros"
+                : btn === "=" ? "equals" : ""}
               value = {btn}
               onClick ={
                 btn === "C"
                 ? resetClickHandler
+                :btn === "log"
+                ? logClickHandler
                 : btn === "+-"
                 ? invertClickHandler
                 : btn === "%"
                 ? percentClickHandler
                 : btn === "="
                 ? equalsClickHandler
+                : btn === "00"
+                ? hundredClickHandler
+                : btn === "√"
+                ? rootClickHandler                
                 : btn === "/" || btn === "X" || btn === "-" || btn === "+"
                   ? signClickHandler
                   : btn === "."
