@@ -1,3 +1,4 @@
 # ReactCalculator
 Simple calculator made with React <br>
-<img width="521" alt="Captura de Pantalla 2022-04-28 a la(s) 15 01 14" src="https://user-images.githubusercontent.com/73369706/165826953-f233543a-ffcc-47d2-87ba-b04ed8afc9a3.png">
+
+<img width="408" alt="Captura de Pantalla 2022-05-01 a la(s) 09 01 27" src="https://user-images.githubusercontent.com/73369706/166147157-cac0b2e4-e381-4237-a24a-be30cf0f2d54.png">
